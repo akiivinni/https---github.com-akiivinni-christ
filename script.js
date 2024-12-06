@@ -85,13 +85,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
 
-            // Generate the PDF for the participant
+          
             const doc = new jsPDF();
             doc.text(`Hello ${name}`, 10, 20);
             doc.text(`Hi, Tis the season to be jolly and our Christmas party is just the place for it!`, 10, 30);
             doc.text(`Get ready to jingle and mingle at our office Christmas party.`, 10, 40);
                       
-            doc.text(`You’ll be buying a gift for ${participant.giftRecipient}!`, 10, 50);
+            doc.text(`You'll be buying a gift for ${participant.giftRecipient}!`, 10, 50);
             
          
             doc.save(`${name}_gift.pdf`);
