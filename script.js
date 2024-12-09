@@ -2,31 +2,31 @@ document.addEventListener('DOMContentLoaded', function() {
     const { jsPDF } = window.jspdf;
 
     const participants = [
-        { "name": "snowflake", "giftRecipient": "summanth", imageurl:"images/image19.png"},
-        { "name": "christmas", "giftRecipient": "VidyaSree",  imageurl:"images/image5.png"},
+        { "name": "snowflakes", "giftRecipient": "summanth", imageurl:"images/snow.jpg"},
+        { "name": "merrychristmas", "giftRecipient": "VidyaSree",  imageurl:"images/merrychristmas.jpg"},
         { "name": "candy", "giftRecipient": "Sayantan",imageurl:"images/Candy.jpg" },
-        { "name": "santa", "giftRecipient": "Sai" ,imageurl:"images/santa.png"},
-        { "name": "gift", "giftRecipient": "Pavana",imageurl:"images/gifts.png" },
-        { "name": "xmas", "giftRecipient": "Preeti" ,imageurl:"images/christmastree.png"},
+        { "name": "santaclaus", "giftRecipient": "Sai" ,imageurl:"images/santaclaus.png"},
+        { "name": "present", "giftRecipient": "Pavana",imageurl:"images/gifts.png" },
+        { "name": "garland", "giftRecipient": "Preeti" ,imageurl:"images/trees.jpg"},
         { "name": "holiday", "giftRecipient": "Pradeep" ,imageurl:"images/image9.png"},
-        { "name": "plumcake", "giftRecipient": "Nithin" ,imageurl:"images/image12.png"},
-        { "name": "christmaseve", "giftRecipient": "Akanksha",imageurl:"images/image5.png" },
+        { "name": "cupcake", "giftRecipient": "Nithin" ,imageurl:"images/cupcake.jpg"},
+        { "name": "christmaseve", "giftRecipient": "Akanksha",imageurl:"images/eve.jpg" },
         { "name": "holidayparty", "giftRecipient": "Harish",imageurl:"images/image6.png" },
-        { "name": "carols", "giftRecipient": "Devika" ,imageurl:"images/image16.png"},
-        { "name": "jinglebell", "giftRecipient": "Sanjukta",imageurl:"images/image16.png" },
-        { "name": "yule", "giftRecipient": "Ganeshan" ,imageurl:"images/image14.png"},
+        { "name": "carols", "giftRecipient": "Devika" ,imageurl:"images/carols.jpg"},
+        { "name": "jinglebell", "giftRecipient": "Sanjukta",imageurl:"images/jinglebell.jpg" },
+        { "name": "snowglobe", "giftRecipient": "Ganeshan" ,imageurl:"images/snowglobe.jpg"},
         { "name": "festive season", "giftRecipient": "Varuni" ,imageurl:"images/image18.png"},
-        { "name": "jesaus", "giftRecipient": "Harika",imageurl:"images/image10.png" },
-        { "name": "angel", "giftRecipient": "Supradeep",imageurl:"images/image14.png" },
+        { "name": "jesus", "giftRecipient": "Harika",imageurl:"images/jesus.jpg" },
+        { "name": "angel", "giftRecipient": "Supradeep",imageurl:"images/angel.jpg" },
         { "name": "clara", "giftRecipient": "Abdullah",imageurl:"images/merry.png" },
-        { "name": "december", "giftRecipient": "Renjusha",imageurl:"images/image12.png" },
-        { "name": "holly", "giftRecipient": "Yugo jyoti",imageurl:"images/image17.png" },
-        { "name": "christams Tree", "giftRecipient": "Seema",imageurl:"images/image18.png" },
-        { "name": "Candels", "giftRecipient": "Boopathi" ,imageurl:"images/image12.png"},
-        { "name": "joy", "giftRecipient": "Sithun" ,imageurl:"images/image5.png"},
-        { "name": "spark", "giftRecipient": "Akhila" ,imageurl:"images/image13.png"},
-        { "name": "blessings", "giftRecipient": "Pooja",imageurl:"images/image11.png" },
-        { "name": "christams ball", "giftRecipient": "Usha",imageurl:"images/image5.png" },
+        { "name": "snowmen", "giftRecipient": "Renjusha",imageurl:"images/snowmen.jpg" },
+        { "name": "holly", "giftRecipient": "Yugo jyoti",imageurl:"images/holly.jpg" },
+        { "name": "christamstree", "giftRecipient": "Seema",imageurl:"images/image18.png" },
+        { "name": "candles", "giftRecipient": "Boopathi" ,imageurl:"images/candels.jpg"},
+        { "name": "joy", "giftRecipient": "Sithun" ,imageurl:"images/joy.jpg"},
+        { "name": "reindeer", "giftRecipient": "Akhila" ,imageurl:"images/reindeer.webp"},
+        { "name": "blessings", "giftRecipient": "Pooja",imageurl:"images/bless.jpg" },
+        { "name": "christmasstar", "giftRecipient": "Usha",imageurl:"images/star.jpg" },
        
     ];
 
@@ -88,10 +88,51 @@ document.addEventListener('DOMContentLoaded', function() {
           
             const doc = new jsPDF();
             doc.text(`Hello ${name}`, 10, 20);
-            doc.text(`Hi, Tis the season to be jolly and our Christmas party is just the place for it!`, 10, 30);
-            doc.text(`Get ready to jingle and mingle at our office Christmas party.`, 10, 40);
-                      
-            doc.text(`You'll be buying a gift for ${participant.giftRecipient}!`, 10, 50);
+
+            doc.text(
+              `'Tis the season to be jolly, and our Christmas party is the perfect 
+              place to celebrate!`, 
+              20, 30, { align: 'justify' }
+            );
+            
+            doc.text(
+              `Get ready to jingle and mingle with your colleagues at our
+               festive office Christmas celebration.`,
+              20, 40, { align: 'justify' }
+            );
+            
+            doc.text(
+              `Santa's making a special stop at [Accenture, BDC14B] this year!`,
+              10, 50
+            );
+            
+            doc.text(
+              `Join us for some holiday cheer on [date] at [venue] from [time].
+               Don't miss out on the fun!`,
+              10, 60, { align: 'justify' }
+            );
+            
+            doc.text(``, 10, 70);  
+            
+            doc.text(
+              `Deck the halls, and remember to grab a gift for ${participant.giftRecipient}!`,
+              10, 80, { align: 'justify' }
+            );
+            
+            doc.text(``, 10, 90); 
+          
+            doc.setFont("helvetica", "bold");
+            doc.text(`Wrapped it once, and then once more,`, 10, 100);
+            doc.text(`Tape stuck to me, not the floor.`, 10, 110);
+            doc.text(`By the time I’m finally through,`, 10, 120);
+            doc.text(`The gift’s unwrapped by YOU-KNOW-WHO!`, 10, 130);
+            
+            doc.setFont("helvetica", "normal");  
+            
+            doc.text(`Thanks, Innovation & Technology | Global HR`, 10, 140);
+            
+            
+            // doc.text(`You'll be buying a gift for ${participant.giftRecipient}!`, 10, 50);
             
          
             doc.save(`${name}_gift.pdf`);
