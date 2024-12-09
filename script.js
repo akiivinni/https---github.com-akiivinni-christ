@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { "name": "candy", "giftRecipient": "Sayantan",imageurl:"images/Candy.jpg" },
         { "name": "santaclaus", "giftRecipient": "Sai" ,imageurl:"images/santaclaus.png"},
         { "name": "present", "giftRecipient": "Pavana",imageurl:"images/gifts.png" },
-        { "name": "garland", "giftRecipient": "Preeti" ,imageurl:"images/trees.jpg"},
+        { "name": "garland", "giftRecipient": "Preeti" ,imageurl:"images/garland.jpg"},
         { "name": "holiday", "giftRecipient": "Pradeep" ,imageurl:"images/image9.png"},
         { "name": "cupcake", "giftRecipient": "Nithin" ,imageurl:"images/cupcake.jpg"},
         { "name": "christmaseve", "giftRecipient": "Akanksha",imageurl:"images/eve.jpg" },
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { "name": "clara", "giftRecipient": "Abdullah",imageurl:"images/merry.png" },
         { "name": "snowmen", "giftRecipient": "Renjusha",imageurl:"images/snowmen.jpg" },
         { "name": "holly", "giftRecipient": "Yugo jyoti",imageurl:"images/holly.jpg" },
-        { "name": "christamstree", "giftRecipient": "Seema",imageurl:"images/image18.png" },
+        { "name": "christamstree", "giftRecipient": "Seema",imageurl:"images/trees.jpg" },
         { "name": "candles", "giftRecipient": "Boopathi" ,imageurl:"images/candels.jpg"},
         { "name": "joy", "giftRecipient": "Sithun" ,imageurl:"images/joy.jpg"},
         { "name": "reindeer", "giftRecipient": "Akhila" ,imageurl:"images/reindeer.webp"},
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Find the participant with the entered name
+            
             const participant = participants.find(p => p.name === name);
             if (!participant) {
                 alert("Invalid name entered!");
@@ -87,54 +87,57 @@ document.addEventListener('DOMContentLoaded', function() {
 
           
             const doc = new jsPDF();
-            doc.text(`Hello ${name}`, 10, 20);
-
-            doc.text(
-              `'Tis the season to be jolly, and our Christmas party is the perfect 
-              place to celebrate!`, 
-              20, 30, { align: 'justify' }
-            );
-            
-            doc.text(
-              `Get ready to jingle and mingle with your colleagues at our
-               festive office Christmas celebration.`,
-              20, 40, { align: 'justify' }
-            );
-            
-            doc.text(
-              `Santa's making a special stop at [Accenture, BDC14B] this year!`,
-              10, 50
-            );
-            
-            doc.text(
-              `Join us for some holiday cheer on [date] at [venue] from [time].
-               Don't miss out on the fun!`,
-              10, 60, { align: 'justify' }
-            );
-            
-            doc.text(``, 10, 70);  
-            
-            doc.text(
-              `Deck the halls, and remember to grab a gift for ${participant.giftRecipient}!`,
-              10, 80, { align: 'justify' }
-            );
-            
-            doc.text(``, 10, 90); 
-          
-            doc.setFont("helvetica", "bold");
-            doc.text(`Wrapped it once, and then once more,`, 10, 100);
-            doc.text(`Tape stuck to me, not the floor.`, 10, 110);
-            doc.text(`By the time I’m finally through,`, 10, 120);
-            doc.text(`The gift’s unwrapped by YOU-KNOW-WHO!`, 10, 130);
-            
-            doc.setFont("helvetica", "normal");  
-            
-            doc.text(`Thanks, Innovation & Technology | Global HR`, 10, 140);
-            
-            
-            // doc.text(`You'll be buying a gift for ${participant.giftRecipient}!`, 10, 50);
-            
          
+let yPosition = 20;
+const marginLeft = 10;
+const marginTop = 20;
+
+
+doc.setFont("helvetica", "normal");
+doc.setFontSize(12);
+
+doc.text(`Hello ${name}`, marginLeft, yPosition);
+yPosition += 15; 
+
+let message1 = `'Tis the season to be jolly, and our Christmas party is the 
+perfect place to celebrate!`;
+doc.text(message1, marginLeft, yPosition, );
+yPosition += 20;
+
+let message2 = `Get ready to jingle and mingle with your colleagues at our
+festive office Christmas celebration.`;
+doc.text(message2, marginLeft, yPosition, );
+yPosition += 20; 
+
+let message3 = `Santa's making a special stop at [Accenture, BDC14B] 
+this year!`;
+doc.text(message3, marginLeft, yPosition);
+yPosition += 20; 
+
+let message4 = `Join us for some holiday cheer on [date] at
+[venue] from [time].
+Don't miss out on the fun!`;
+doc.text(message4, marginLeft, yPosition, );
+yPosition += 30; 
+
+let message5 = `Deck the halls, and remember to grab a gift for 
+${participant.giftRecipient}!`;
+doc.text(message5, marginLeft, yPosition, );
+yPosition += 20; 
+
+yPosition += 10;
+
+doc.setFont("helvetica", "bold");
+doc.text(`Wrapped it once, and then once more,`, marginLeft, yPosition);
+yPosition += 12;
+doc.text(`Tape stuck to me, not the floor.`, marginLeft, yPosition);
+yPosition += 12;
+doc.text(`By the time I’m finally through,`, marginLeft, yPosition);
+yPosition += 12;
+doc.text(`The gift’s unwrapped by YOU-KNOW-WHO!`, marginLeft, yPosition);
+yPosition += 20; 
+doc.setFont("helvetica", "normal");
+doc.text(`Thanks, Innovation & Technology | Global HR`, marginLeft, yPosition);
             doc.save(`${name}_gift.pdf`);
            
             setTimeout(() => {
